@@ -345,7 +345,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3.73000002
+      value: 6.3499999
       objectReference: {fileID: 0}
     - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
       propertyPath: CollisionModule.energyLossOnCollision
@@ -354,6 +354,26 @@ Prefab:
     - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
       propertyPath: CollisionModule.bounce
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .829999983
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4293067007
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
+      propertyPath: SizeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800498, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
@@ -451,6 +471,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &1829801827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1829801829}
+  - 114: {fileID: 1829801828}
+  m_Layer: 0
+  m_Name: PoolController
+  m_TagString: PoolController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1829801828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829801827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcf0697325a78440b6d843abb14f53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects:
+  - {fileID: 180222, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+  poolBuffer: 2c010000
+--- !u!4 &1829801829
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829801827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1876610884
 GameObject:
   m_ObjectHideFlags: 0
