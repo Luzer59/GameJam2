@@ -10,9 +10,8 @@ public class PlayerAim : MonoBehaviour
 
     private Transform aimTarget;
     private Transform head;
+    private Transform body;
     private Direction direction = Direction.right;
-    private Rigidbody2D headRigidbody;
-
     
     void Awake()
     {
@@ -23,17 +22,19 @@ public class PlayerAim : MonoBehaviour
             if (children[i].name == "Head")
             {
                 head = children[i];
-                break;
+            }
+            else if (children[i].name == "Body")
+            {
+                body = children[i];
             }
         }
-        headRigidbody = head.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
         AimAtTarget();
 
-        if(isLerpping)
+        /*if(isLerpping)
         {
 
             float timeSinceStarted = Time.time - startTime;
@@ -46,24 +47,17 @@ public class PlayerAim : MonoBehaviour
                 isLerpping = false;
             }
 
-        }
+        }*/
     }
 
     void AimAtTarget()
     {
-        if (aimTarget.position.y >= transform.position.y)
-        {
-            headRigidbody.rotation = Vector3.Angle(Vector3.right, aimTarget.position - transform.position);
-        }
-        else
-        {
-            headRigidbody.rotation = 360f - Vector3.Angle(Vector3.right, aimTarget.position - transform.position);
-        }
+        Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, head.position - aimTarget.position);
+        newRotation *= Quaternion.Euler(0f, 0f, -90f);
+        head.rotation = newRotation;
 
-        if (headRigidbody.rotation > 90f && headRigidbody.rotation < 270f)
+        if (aimTarget.position.x < head.position.x)
         {
-            headRigidbody.rotation *= -1;
-
             if (direction != Direction.left)
             {
                 SwitchDirection();
@@ -79,11 +73,11 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        //Debug.DrawRay(transform.position, transform.right * 5f);
+        Debug.DrawRay(head.position, head.right * 5f);
     }
 
 
-    bool isLerpping;
+    /*bool isLerpping;
     public float timeTakenToLerp  =0.4f;
     float startTime;
     Vector3 startScale;
@@ -96,15 +90,11 @@ public class PlayerAim : MonoBehaviour
         startScale = transform.localScale;
         endScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         isLerpping = true;
-    }
-
-   
-
+    }*/
 
     void SwitchDirection()
     {
-        //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        startLerp();
-        head.localScale = new Vector3(-head.localScale.x, -head.localScale.y, head.localScale.z);
+        body.localScale = new Vector3(-body.localScale.x, body.localScale.y, body.localScale.z);
+        head.localScale = new Vector3(head.localScale.x, -head.localScale.y, head.localScale.z);
     }
 }
