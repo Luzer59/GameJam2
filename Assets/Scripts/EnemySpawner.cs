@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 	}
 
     public bool IsFlying = false;
-    public Vector2 spawnValues;
+    public Vector3 spawnValues;
     public int hazardCount;
     public GameObject hazard;
     public float spawnWait;
@@ -33,11 +33,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (IsFlying)
                 {
-                    spawnPosition = new Vector2(spawnValues.x, (float)Random.Range((float)-spawnValues.y, (float)spawnValues.y));
+                    spawnPosition = new Vector3(spawnValues.x, (float)Random.Range((float)-spawnValues.y, (float)spawnValues.y), 0);
                 }
                 else
                 {
-                    spawnPosition = new Vector2(spawnValues.x, spawnValues.y);
+                    spawnPosition = new Vector3(spawnValues.x, spawnValues.y, 0);
                 }
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);

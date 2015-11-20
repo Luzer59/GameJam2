@@ -6,18 +6,19 @@ public class Mover : MonoBehaviour {
     public float speed;
 
 	void Start () {
-        if (GetComponent<Rigidbody2D>().position.x < 0)
+        if (GetComponent<Rigidbody>().position.x < 0)
         {
-            GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+            GetComponent<Rigidbody>().velocity = transform.right * speed;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        if (GetComponent<Rigidbody2D>().position.x >= 0)
+        if (GetComponent<Rigidbody>().position.x >= 0)
         {
-            GetComponent<Rigidbody2D>().velocity = transform.right * -speed;
+            GetComponent<Rigidbody>().velocity = transform.right * -speed;
         }
 	}
-    void OnTriggerEnter2D(Collider2D StopPosition)
+    void OnTriggerEnter(Collider StopPosition)
     {
-        GetComponent<Rigidbody2D>().velocity = transform.right * 0;
+        GetComponent<Rigidbody>().velocity = transform.right * 0;
     }
 	
 }
