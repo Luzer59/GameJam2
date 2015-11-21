@@ -4,10 +4,12 @@ using System.Collections;
 public class AimParticles : MonoBehaviour
 {
     public int firePoolIndex;
+    public int particleAOEIndex;
     private ParticleCollisionEvent[] collisionEvents;
     private ParticleSystem part;
     private PoolController poolController;
     public int damage = 1;
+    public float radius = 0.5f;
 
     void Awake()
     {
@@ -22,15 +24,22 @@ public class AimParticles : MonoBehaviour
         if (collisionEvents.Length < safeLength)
             collisionEvents = new ParticleCollisionEvent[safeLength];
 
-        //int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+        // !!!do not remove this!!!
+        int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
-        if (other.tag == "Enemies")
-        {
-            other.GetComponent<EnemyBehaviour>().TakeDamage(damage);
-        }
-        else
+        if (other.tag != "Enemies")
         {
             ActivateGroundFireEffect();
+        }
+
+        Collider[] colliders = Physics.OverlapSphere(collisionEvents[0].intersection, radius);
+
+        foreach (Collider col in colliders)
+        {
+            if (col.tag == "Enemies")
+            {
+                col.GetComponent<EnemyBehaviour>().TakeDamage(damage);
+            }
         }
     }
 

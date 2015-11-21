@@ -12,10 +12,12 @@ public class GroundFireEffect : MonoBehaviour
 
         Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, direction);
         newRotation *= Quaternion.Euler(0f, 0f, -90f);
+        
         if (alignWithTerrain)
         {
             transform.rotation = newRotation;
         }
+
         StartCoroutine(RemoveAfterTime());
     }
 

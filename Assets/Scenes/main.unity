@@ -667,9 +667,9 @@ RectTransform:
   - {fileID: 44830621}
   m_Father: {fileID: 1804115836}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -317.299988, y: 156.300003}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 51.8600006, y: -50.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &932802792
@@ -937,18 +937,6 @@ Prefab:
     - target: {fileID: 474488, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439074, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
-      propertyPath: staminaCost
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439074, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
-      propertyPath: staminaRecovery
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439074, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
-      propertyPath: recoveryTime
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a816bf2262876b24296342f6df1c39b4, type: 2}

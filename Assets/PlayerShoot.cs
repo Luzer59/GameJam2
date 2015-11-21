@@ -6,16 +6,20 @@ public class PlayerShoot : MonoBehaviour
     public float staminaCost;
     public float staminaRecovery;
     public float recoveryTime;
+    public Sprite[] spriteStates;
+    public GameObject headSprite;
 
     private bool recovering = false;
     private Stamina staminaSystem;
     private ParticleSystem flame;
+    private SpriteRenderer spriteRenderer;
     private bool isPlaying = false;
 
     void Awake()
     {
         staminaSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<Stamina>();
         flame = GetComponentInChildren<ParticleSystem>();
+        spriteRenderer = headSprite.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -33,13 +37,18 @@ public class PlayerShoot : MonoBehaviour
             if (!isPlaying)
             {
                 flame.Play();
+                spriteRenderer.sprite = spriteStates[0];
             }
             isPlaying = true;   
         }
         if (Input.GetMouseButtonUp(0) || recovering)
         {
-            flame.Stop();
-            isPlaying = false;
+            if (isPlaying)
+            {
+                spriteRenderer.sprite = spriteStates[1];
+                flame.Stop();
+                isPlaying = false;
+            }
         }
         if (isPlaying)
         {
