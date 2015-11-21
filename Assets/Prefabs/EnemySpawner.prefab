@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 444698}
   - 114: {fileID: 11466314}
   - 114: {fileID: 11495782}
+  - 114: {fileID: 11493564}
+  - 114: {fileID: 11454212}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -29,6 +31,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11454212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b221d107340d1540a9a6d6b73d76504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFlying: 1
+  spawnValues: {x: 9, y: 2, z: 0}
+  hazardCount: 1
+  hazard: {fileID: 159846, guid: 26550b17d14eb554aa5d3193c04ca444, type: 2}
+  spawnWait: 9
+  startWait: 0
+  waveWait: 0
 --- !u!114 &11466314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,10 +61,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFlying: 0
-  spawnValues: {x: 9, y: -3.29999995}
+  spawnValues: {x: 9, y: -2.9000001, z: 0}
   hazardCount: 1
   hazard: {fileID: 103670, guid: a71e299f9b849df46b2a6fa319b27922, type: 2}
-  spawnWait: 5
+  spawnWait: 11
+  startWait: 0
+  waveWait: 0
+--- !u!114 &11493564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b221d107340d1540a9a6d6b73d76504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFlying: 0
+  spawnValues: {x: -9, y: 2, z: 0}
+  hazardCount: 1
+  hazard: {fileID: 159846, guid: 26550b17d14eb554aa5d3193c04ca444, type: 2}
+  spawnWait: 7
   startWait: 0
   waveWait: 0
 --- !u!114 &11495782
@@ -59,10 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFlying: 0
-  spawnValues: {x: -9, y: -3.29999995}
+  spawnValues: {x: -9, y: -2.9000001, z: 0}
   hazardCount: 1
   hazard: {fileID: 103670, guid: a71e299f9b849df46b2a6fa319b27922, type: 2}
-  spawnWait: 5
+  spawnWait: 8
   startWait: 0
   waveWait: 0
 --- !u!1001 &100100000
