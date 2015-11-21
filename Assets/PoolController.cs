@@ -22,7 +22,7 @@ public class PoolController : MonoBehaviour
                 instance = (GameObject)Instantiate(pooledObjects[i]);
                 pools[i].Add(instance);
                 //instance.GetComponent<PoolInfo>().container = transform;
-                instance.transform.SetParent(transform);
+                instance.transform.SetParent(container);
                 instance.SetActive(false);
             }
         }
