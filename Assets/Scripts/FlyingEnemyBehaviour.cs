@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class FlyingEnemyBehaviour : MonoBehaviour {
 
     public int EnemyHealth = 100;
     int maxhealth = 100;
@@ -15,7 +15,6 @@ public class EnemyBehaviour : MonoBehaviour {
     
     void Start()
     {
-        tower = GameObject.Find("Tower");
         GameObject Fire = new GameObject();
         animator = GetComponent<Animator>();
     }
@@ -56,26 +55,12 @@ public class EnemyBehaviour : MonoBehaviour {
     IEnumerator Burning()
      {
          yield return new WaitForSeconds(1);
-         GetComponent<EnemyBehaviour>().TakeDamage(BurningDamage);
+         GetComponent<FlyingEnemyBehaviour>().TakeDamage(BurningDamage);
 
      }
     
     void OnTriggerEnter(Collider StopPosition)
     {
         GetComponent<Rigidbody>().velocity = transform.right * 0;
-        StartCoroutine(hittower());
     }
-    IEnumerator hittower()
-    {
-        int i = 0;
-        while ( i <= 3)
-        {
-            yield return new WaitForSeconds(1);
-                i = tower.GetComponent<TowerController>().getpiece();
-                tower.GetComponent<TowerController>().TakeDamage(damage);
-                
-        }
-
-    }
-
 }

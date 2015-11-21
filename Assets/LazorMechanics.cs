@@ -3,12 +3,13 @@ using System.Collections;
 
 public class LazorMechanics : MonoBehaviour 
 {
-    public GameObject player;
+    private GameObject player;
     public int Damage = 10;
     public float speed;
 
     void Start()
     {
+        player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
         if (GetComponent<Rigidbody>().position.x < 0)
         {

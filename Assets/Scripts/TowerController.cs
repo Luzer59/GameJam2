@@ -6,6 +6,7 @@ public class TowerController : MonoBehaviour
     public GameObject[] towerPieces;
     private GameObject player;
     private int currentPieceBeingHitInt = 0;
+    public int piece = 0;
     public float currentLerpTime = 0f;
     public float lerpTime = 1f;
     private Vector3[] dropStartPos;
@@ -15,6 +16,7 @@ public class TowerController : MonoBehaviour
 
     void Awake()
     {
+        
         // Get references
         player = GameObject.FindGameObjectWithTag("Player");
         SpriteRenderer[] towerPiecesTemp = GetComponentsInChildren<SpriteRenderer>();
@@ -83,6 +85,8 @@ public class TowerController : MonoBehaviour
 
     void Update()
     {
+        piece = currentPieceBeingHitInt;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(5);
@@ -104,5 +108,9 @@ public class TowerController : MonoBehaviour
                 isDropping = false;
             }
         }
+    }
+    public int getpiece()
+    {
+        return piece;
     }
 }
