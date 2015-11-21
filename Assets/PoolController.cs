@@ -12,7 +12,6 @@ public class PoolController : MonoBehaviour
     void Start()
     {
         pools = new List<GameObject>[pooledObjects.Length];
-        Debug.Log(pools.Length);
         for (int i = 0; i < pooledObjects.Length; i++)
         {
             pools[i] = new List<GameObject>();
@@ -20,10 +19,9 @@ public class PoolController : MonoBehaviour
             container.SetParent(transform);
             for (int u = 0; u < poolBuffer[i]; u++)
             {
-                Debug.Log(pools[i]);
                 instance = (GameObject)Instantiate(pooledObjects[i]);
                 pools[i].Add(instance);
-                instance.GetComponent<PoolInfo>().container = transform;
+                //instance.GetComponent<PoolInfo>().container = transform;
                 instance.transform.SetParent(transform);
                 instance.SetActive(false);
             }

@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 416144}
   - 212: {fileID: 21230122}
   - 114: {fileID: 11480956}
-  - 114: {fileID: 11472426}
-  m_Layer: 0
+  - 65: {fileID: 6555216}
+  m_Layer: 8
   m_Name: kalikka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,19 +30,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11472426
-MonoBehaviour:
+--- !u!65 &6555216
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172e68ac61d3e68498f2bb3a7453f9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  poolIndex: 0
+  serializedVersion: 2
+  m_Size: {x: .639999986, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11480956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ebda5b94e508648a44f5449d5d028e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alignWithTerrain: 0
 --- !u!212 &21230122
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,6 +106,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

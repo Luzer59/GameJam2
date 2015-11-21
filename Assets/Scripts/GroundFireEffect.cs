@@ -3,13 +3,18 @@ using System.Collections;
 
 public class GroundFireEffect : MonoBehaviour
 {
+    public bool alignWithTerrain = false;
+
     public void Activate(Vector3 position, Vector3 direction)
     {
         transform.position = position;
 
         Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, direction);
         newRotation *= Quaternion.Euler(0f, 0f, -90f);
-        transform.rotation = newRotation;
+        if (alignWithTerrain)
+        {
+            transform.rotation = newRotation;
+        }
         StartCoroutine(RemoveAfterTime());
     }
 
@@ -21,7 +26,6 @@ public class GroundFireEffect : MonoBehaviour
 
     void ReturnToPool()
     {
-        transform.SetParent(GetComponent<PoolInfo>().container);
         gameObject.SetActive(false);
     }
 }

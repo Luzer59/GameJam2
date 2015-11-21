@@ -3,8 +3,7 @@ using System.Collections;
 
 public class AimParticles : MonoBehaviour
 {
-    private int firePoolIndex;
-
+    public int firePoolIndex;
     private ParticleCollisionEvent[] collisionEvents;
     private ParticleSystem part;
     private PoolController poolController;
