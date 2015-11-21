@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoolIndex: 0
+  damage: 1
 --- !u!198 &19800498
 ParticleSystem:
   m_ObjectHideFlags: 1
