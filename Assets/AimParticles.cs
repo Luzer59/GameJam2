@@ -7,6 +7,7 @@ public class AimParticles : MonoBehaviour
     private ParticleCollisionEvent[] collisionEvents;
     private ParticleSystem part;
     private PoolController poolController;
+    public int damage;
 
     void Awake()
     {
@@ -22,14 +23,12 @@ public class AimParticles : MonoBehaviour
             collisionEvents = new ParticleCollisionEvent[safeLength];
 
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-
-        /*for (int i = 0; i < numCollisionEvents; i++)
+        if (other.tag == "Enemies")
         {
-
-        }*/
+            other.GetComponent<EnemyBehaviour>().TakeDamage(damage);
+        }
 
         ActivateGroundFireEffect();
-
     }
 
     void ActivateGroundFireEffect()

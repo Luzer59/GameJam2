@@ -7,7 +7,7 @@ public class EnemyBehaviour : MonoBehaviour {
     //public GameObject Player;
     public int EnemyHealth = 100;
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         EnemyHealth -= damage;
     }
