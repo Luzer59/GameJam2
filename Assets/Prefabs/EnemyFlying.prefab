@@ -30,9 +30,10 @@ GameObject:
   - 114: {fileID: 11404660}
   - 54: {fileID: 5478350}
   - 65: {fileID: 6502056}
-  - 114: {fileID: 11446612}
   - 95: {fileID: 9555680}
   - 114: {fileID: 11468626}
+  - 114: {fileID: 11461998}
+  - 114: {fileID: 11402278}
   m_Layer: 9
   m_Name: EnemyFlying
   m_TagString: Enemies
@@ -126,20 +127,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11404660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059cb8f60830e8c43a695da3cfb64abd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  StartAttacking: 0
---- !u!114 &11446612
+--- !u!114 &11402278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -153,6 +141,20 @@ MonoBehaviour:
   EnemyHealth: 100
   Fire: {fileID: 108052}
   damage: 5
+  IsFlyingEnemy: 1
+--- !u!114 &11404660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059cb8f60830e8c43a695da3cfb64abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  StartAttacking: 0
 --- !u!114 &11450400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,6 +166,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb86136fde45d24a879b82901714ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11461998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10cbb35cc1e9974ab299f57a67d1e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyHealth: 100
+  maxhealth: 100
+  isdead: 0
+  onfire: 0
+  BurningDamage: 10
+  animator: {fileID: 0}
+  Fire: {fileID: 0}
+  damage: 5
+  tower: {fileID: 0}
 --- !u!114 &11468626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,6 +278,14 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 128304, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
+    - target: {fileID: 0}
+      propertyPath: IsFlyingEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Fire
+      value: 
+      objectReference: {fileID: 108052}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159846}

@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public GameObject Fire;
     public int damage = 5;
     private GameObject tower;
+    public bool IsFlyingEnemy = false;
     
     void Start()
     {
@@ -63,7 +64,10 @@ public class EnemyBehaviour : MonoBehaviour {
     void OnTriggerEnter(Collider StopPosition)
     {
         GetComponent<Rigidbody>().velocity = transform.right * 0;
-        StartCoroutine(hittower());
+        if (IsFlyingEnemy == false)
+        {
+            StartCoroutine(hittower());
+        }
     }
     IEnumerator hittower()
     {
