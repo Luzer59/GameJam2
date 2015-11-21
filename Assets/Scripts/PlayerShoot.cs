@@ -9,6 +9,7 @@ public class PlayerShoot : MonoBehaviour
     public Sprite[] spriteStates;
     public GameObject headSprite;
 
+    private Light muzzleFlame;
     private bool recovering = false;
     private Stamina staminaSystem;
     private ParticleSystem flame;
@@ -17,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Awake()
     {
+        muzzleFlame = GetComponentInChildren<Light>();
         staminaSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<Stamina>();
         flame = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = headSprite.GetComponent<SpriteRenderer>();
@@ -36,6 +38,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if (!isPlaying)
             {
+                muzzleFlame.enabled = true;
                 flame.Play();
                 spriteRenderer.sprite = spriteStates[0];
             }
@@ -45,6 +48,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if (isPlaying)
             {
+                muzzleFlame.enabled = false;
                 spriteRenderer.sprite = spriteStates[1];
                 flame.Stop();
                 isPlaying = false;
