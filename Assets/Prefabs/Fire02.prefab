@@ -33,7 +33,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &440804
 Transform:
   m_ObjectHideFlags: 1
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170522}
   m_LocalRotation: {x: -.70708102, y: -.00603885576, z: .00603858987, w: .70708096}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.01999998, y: -2.52999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 478708}
@@ -76,7 +76,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 3.79999995
+      scalar: 1.58000004
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -99,7 +99,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: .800000012
+      scalar: .00999999978
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -221,7 +221,7 @@ ParticleSystem:
         rgba: 4284508796
       minMaxState: 0
     startSize:
-      scalar: 1.64999998
+      scalar: .800000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -286,16 +286,16 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    gravityModifier: -0
+    gravityModifier: -.0500000007
     inheritVelocity: 0
     maxNumParticles: 5000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 4
-    radius: .720000029
-    angle: 0
-    length: 7.73999977
+    type: 8
+    radius: .209999993
+    angle: .810000002
+    length: 0
     boxX: 1
     boxY: 1
     boxZ: 1
@@ -307,7 +307,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 27.5200005
+      scalar: 54.0800018
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2168,9 +2168,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2206,9 +2204,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
