@@ -152,6 +152,48 @@ RectTransform:
   m_AnchoredPosition: {x: -2.4000001, y: 2.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!1001 &183022192
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 15.603817
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.03165722
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 416144, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ff7abb224f7023042aa4eaf7da4dce88, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &334208497
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,8 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   stamina: 0
-  mask: {fileID: 366376522}
-  silhouette: {fileID: 44830618}
   flameBar: {fileID: 396880517}
 --- !u!1 &366376522
 GameObject:
@@ -975,7 +1015,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474488, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11476134, guid: a816bf2262876b24296342f6df1c39b4, type: 2}
       propertyPath: damage
