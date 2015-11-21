@@ -4,6 +4,7 @@ using System.Collections;
 public class GroundFireEffect : MonoBehaviour
 {
     public bool alignWithTerrain = false;
+    public int damage = 1;
 
     public void Activate(Vector3 position, Vector3 direction)
     {
@@ -27,5 +28,13 @@ public class GroundFireEffect : MonoBehaviour
     void ReturnToPool()
     {
         gameObject.SetActive(false);
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.tag == "Enemies")
+        {
+            col.GetComponent<EnemyBehaviour>().TakeDamage(damage);
+        }
     }
 }

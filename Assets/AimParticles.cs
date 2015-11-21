@@ -22,11 +22,10 @@ public class AimParticles : MonoBehaviour
         if (collisionEvents.Length < safeLength)
             collisionEvents = new ParticleCollisionEvent[safeLength];
 
-        int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-        //print(other.tag);
+        //int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+
         if (other.tag == "Enemies")
         {
-            print(other.tag);
             other.GetComponent<EnemyBehaviour>().TakeDamage(damage);
         }
         else
