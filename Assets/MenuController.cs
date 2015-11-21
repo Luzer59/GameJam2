@@ -9,4 +9,8 @@ public class MenuController : MonoBehaviour
     {
         sceneFade = GetComponent<SceneFade>();
     }
+    void Start()
+    {
+        sceneFade.Activate();
+    }
 }
