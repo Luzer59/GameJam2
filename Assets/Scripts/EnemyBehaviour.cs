@@ -19,6 +19,7 @@ public class EnemyBehaviour : MonoBehaviour {
         tower = GameObject.Find("Tower");
         GameObject Fire = new GameObject();
         animator = GetComponent<Animator>();
+        maxhealth = EnemyHealth;
     }
 
     void Update()

@@ -10,8 +10,9 @@ public class Mover : MonoBehaviour {
         animator = GetComponent<Animator>();
         if (GetComponent<Rigidbody>().position.x < 0)
         {
+            int invert = -1;
             GetComponent<Rigidbody>().velocity = transform.right * speed;
-            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         if (GetComponent<Rigidbody>().position.x >= 0)
         {
