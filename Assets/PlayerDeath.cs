@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerDeath : MonoBehaviour
 {
+    private Coins coinHolder;
     private GameObject head;
     private ParticleSystem blood;
     private SceneFade sceneFade;
@@ -10,6 +11,7 @@ public class PlayerDeath : MonoBehaviour
 
     void Awake()
     {
+        coinHolder = GameObject.FindGameObjectWithTag("GameController").GetComponent<Coins>();
         head = GameObject.Find("Head");
         blood = GameObject.Find("Body").GetComponentInChildren<ParticleSystem>();
         sceneFade = GameObject.FindGameObjectWithTag("GameController").GetComponent<SceneFade>();
@@ -21,6 +23,7 @@ public class PlayerDeath : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
+                PlayerPrefs.SetInt("Coins", coinHolder.coins);
                 sceneFade.Activate(0);
             }
         }

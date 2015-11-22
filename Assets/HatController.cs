@@ -55,9 +55,9 @@ public class HatController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print(selectedHat);
+            ExitShop();
         }
     }
 

@@ -5,6 +5,7 @@ public class Reset : MonoBehaviour
 {
     public void ResetData()
     {
+        print("asdsad");
         PlayerPrefs.SetInt("Coins", 0);
 
         PlayerPrefs.SetInt("SelectedHat", -1);

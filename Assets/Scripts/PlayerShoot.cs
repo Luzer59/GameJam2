@@ -41,8 +41,15 @@ public class PlayerShoot : MonoBehaviour
 
     void Start()
     {
-        selectedHat = PlayerPrefs.GetInt("SelectedHat");
-        selectedHat = 0; // DEBUG
+        selectedHat = PlayerPrefs.GetInt("SelectedHat") + 1;
+        //selectedHat = 0; // DEBUG
+
+        if (selectedHat > 0)
+        {
+            headSprite.transform.localPosition = new Vector3(0.619f, 0.88f, 0f);
+        }
+        print(selectedHat);
+
     }
 
     void Update()
