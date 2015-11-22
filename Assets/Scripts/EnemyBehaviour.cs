@@ -13,9 +13,11 @@ public class EnemyBehaviour : MonoBehaviour {
     public int damage = 5;
     private GameObject tower;
     public bool IsFlyingEnemy = false;
+    private GameObject player;
     
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         tower = GameObject.Find("Tower");
         GameObject Fire = new GameObject();
         animator = GetComponent<Animator>();
@@ -72,12 +74,12 @@ public class EnemyBehaviour : MonoBehaviour {
     }
     IEnumerator hittower()
     {
-        int i = 0;
-        while ( i <= 3)
+        //int i = 0;
+        while (player.GetComponent<PlayerState>().GameOver == false)
         {
             yield return new WaitForSeconds(1);
-                i = tower.GetComponent<TowerController>().getpiece();
-                tower.GetComponent<TowerController>().TakeDamage(damage);
+            //i = tower.GetComponent<TowerController>().getpiece();
+            tower.GetComponent<TowerController>().TakeDamage(damage);
                 
         }
 

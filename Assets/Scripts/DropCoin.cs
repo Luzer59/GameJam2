@@ -13,14 +13,17 @@ public class DropCoin : MonoBehaviour
 
     void OnDestroy()
     {
-        for (int i = 0; i < poolController.pools[coinPoolIndex].Count; i++)
+        if (poolController)
         {
-            if (!poolController.pools[coinPoolIndex][i].activeInHierarchy)
+            for (int i = 0; i < poolController.pools[coinPoolIndex].Count; i++)
             {
-                poolController.pools[coinPoolIndex][i].SetActive(true);
-                poolController.pools[coinPoolIndex][i].GetComponent<CoinToPouch>().Activate(transform.position);
-                break;
+                if (!poolController.pools[coinPoolIndex][i].activeInHierarchy)
+                {
+                    poolController.pools[coinPoolIndex][i].SetActive(true);
+                    poolController.pools[coinPoolIndex][i].GetComponent<CoinToPouch>().Activate(transform.position);
+                    break;
+                }
             }
-        }
+        } 
     }
 }

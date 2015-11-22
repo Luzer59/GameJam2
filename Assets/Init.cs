@@ -7,9 +7,9 @@ public class Init : MonoBehaviour
 
     void Awake()
     {
-        if (!PlayerPrefs.HasKey("Money") || resetMoneyOnStart)
+        if (!PlayerPrefs.HasKey("Coins") || resetMoneyOnStart)
         {
-            PlayerPrefs.SetInt("Money", 0);
+            PlayerPrefs.SetInt("Coins", 0);
         }
     }
 }

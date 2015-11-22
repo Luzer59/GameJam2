@@ -23,7 +23,7 @@ public class TowerModuleController : MonoBehaviour
 
     public void CheckSpriteState()
     {
-        if (states.Length != 0)
+        if (states.Length == 3)
         {
             float healthPercentage = (float)health / (float)healthMax;
 
@@ -48,6 +48,13 @@ public class TowerModuleController : MonoBehaviour
 
     public void ModuleDestroy()
     {
-        gameObject.SetActive(false);
+        if (states.Length == 1)
+        {
+            spriteRenderer.sprite = states[0];
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

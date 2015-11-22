@@ -3,22 +3,31 @@ using System.Collections;
 
 public class PlayerState : MonoBehaviour {
 
-    public int health = 100;
-    bool GameOver = false;
+    public int maxHealth = 100;
+    public int health;
+    public bool GameOver = false;
+    public GameObject healthBar;
+
+    private float t;
+
 	void Start () 
     {
-        health = 100;
+        health = maxHealth;
 	}
 	void Update () 
     {
-	    if(health <= 0 )
+	    if(health <= 0 && !GameOver)
         {
             GameOver = true;
-            health = 100;
+            StartCoroutine(GetComponent<PlayerDeath>().DeathEffect());
         }
 	}
     public void TakeDamage(int damage)
     {
         health -= damage;
+        t = (float)health / (float)maxHealth;
+        healthBar.transform.localPosition = new Vector3(healthBar.transform.localPosition.x, Mathf.Lerp(-75f, 0f, t), healthBar.transform.localPosition.z);
     }
+
+
 }

@@ -15,58 +15,63 @@ public class PlayerShoot : MonoBehaviour
     private ParticleSystem flame;
     private SpriteRenderer spriteRenderer;
     private bool isPlaying = false;
+    private PlayerState playerState;
 
     void Awake()
     {
+        playerState = GetComponent<PlayerState>();
         muzzleFlame = GetComponentInChildren<Light>();
         staminaSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<Stamina>();
-        flame = GetComponentInChildren<ParticleSystem>();
+        flame = GameObject.Find("Head").GetComponentInChildren<ParticleSystem>();
         spriteRenderer = headSprite.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (recovering)
+        if (!playerState.GameOver)
         {
-            if (staminaSystem.stamina / staminaSystem.maxStamina >= 0.4f)
+            if (recovering)
             {
-                recovering = false;
+                if (staminaSystem.stamina / staminaSystem.maxStamina >= 0.4f)
+                {
+                    recovering = false;
+                }
             }
-        }
 
-        if (Input.GetMouseButton(0) && !recovering)
-        {
-            if (!isPlaying)
+            if (Input.GetMouseButton(0) && !recovering)
             {
-                muzzleFlame.enabled = true;
-                flame.Play();
-                spriteRenderer.sprite = spriteStates[0];
+                if (!isPlaying)
+                {
+                    muzzleFlame.enabled = true;
+                    flame.Play();
+                    spriteRenderer.sprite = spriteStates[0];
+                }
+                isPlaying = true;
             }
-            isPlaying = true;   
-        }
-        if (Input.GetMouseButtonUp(0) || recovering)
-        {
+            if (Input.GetMouseButtonUp(0) || recovering)
+            {
+                if (isPlaying)
+                {
+                    muzzleFlame.enabled = false;
+                    spriteRenderer.sprite = spriteStates[1];
+                    flame.Stop();
+                    isPlaying = false;
+                }
+            }
             if (isPlaying)
             {
-                muzzleFlame.enabled = false;
-                spriteRenderer.sprite = spriteStates[1];
-                flame.Stop();
-                isPlaying = false;
+                staminaSystem.stamina -= staminaCost * Time.deltaTime;
+                if (staminaSystem.stamina <= 0f)
+                {
+                    recovering = true;
+                }
             }
-        }
-        if (isPlaying)
-        {
-            staminaSystem.stamina -= staminaCost * Time.deltaTime;
-            if (staminaSystem.stamina <= 0f)
+            else
             {
-                recovering = true;
+                staminaSystem.stamina += staminaRecovery * Time.deltaTime;
             }
-        }
-        else
-        {
-            staminaSystem.stamina += staminaRecovery * Time.deltaTime;
-        }
 
-        staminaSystem.stamina = Mathf.Clamp(staminaSystem.stamina, 0f, staminaSystem.maxStamina);
+            staminaSystem.stamina = Mathf.Clamp(staminaSystem.stamina, 0f, staminaSystem.maxStamina);
+        }
     }
 }

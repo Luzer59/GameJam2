@@ -11,8 +11,6 @@ public class LightingController : MonoBehaviour
     public float maxRange;
     Light[] lights;
 
-    public float sin;
-
     void Awake()
     {
         lights = GetComponentsInChildren<Light>();

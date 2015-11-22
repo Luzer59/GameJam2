@@ -12,9 +12,11 @@ public class PlayerAim : MonoBehaviour
     private Transform head;
     private Transform body;
     private Direction direction = Direction.right;
+    private PlayerState playerState;
     
     void Awake()
     {
+        playerState = GetComponent<PlayerState>();
         aimTarget = GameObject.Find("AimTarget").transform;
         Transform[] children = GetComponentsInChildren<Transform>();
         for (int i = 0; i < children.Length; i++)
@@ -30,9 +32,12 @@ public class PlayerAim : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        AimAtTarget();
+        if (!playerState.GameOver)
+        {
+            AimAtTarget();
+        }
 
         /*if(isLerpping)
         {

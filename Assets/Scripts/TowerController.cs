@@ -20,7 +20,7 @@ public class TowerController : MonoBehaviour
         // Get references
         player = GameObject.FindGameObjectWithTag("Player");
         SpriteRenderer[] towerPiecesTemp = GetComponentsInChildren<SpriteRenderer>();
-        towerPieces = new GameObject[towerPiecesTemp.Length + 1];
+        towerPieces = new GameObject[towerPiecesTemp.Length];
         for (int i = 0; i < towerPiecesTemp.Length; i++)
         {
             for (int u = 0; u < towerPiecesTemp.Length; u++)
@@ -31,7 +31,7 @@ public class TowerController : MonoBehaviour
                 }
             }
         }
-        towerPieces[towerPieces.Length - 1] = player;
+        //towerPieces[towerPieces.Length - 1] = player;
     }
 
     public void TakeDamage(int damage)
@@ -51,7 +51,7 @@ public class TowerController : MonoBehaviour
                 // Here the last module is destroyed so movement will only apply to the rest of the modules
                 currentPieceBeingHitInt++;
                 int u = 0;
-                dropStartPos = new Vector3[towerPieces.Length - currentPieceBeingHitInt];
+                dropStartPos = new Vector3[towerPieces.Length - currentPieceBeingHitInt + 1];
                 GameObject[] dropTargets = new GameObject[dropStartPos.Length];
 
                 if (currentPieceBeingHitInt < towerPieces.Length)
@@ -63,8 +63,8 @@ public class TowerController : MonoBehaviour
                         u++;
                     }              
                 }
-                //dropStartPos[u] = player.transform.position;
-                //dropTargets[u] = player;
+                dropStartPos[u] = player.transform.position;
+                dropTargets[u] = player;
 
                 isDropping = true;
 
@@ -74,6 +74,10 @@ public class TowerController : MonoBehaviour
 
 
             }
+        }
+        else
+        {
+            player.GetComponent<PlayerState>().TakeDamage(damage);
         }
     }
 
