@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class HatController : MonoBehaviour
 {
@@ -7,13 +8,16 @@ public class HatController : MonoBehaviour
     public int unboxPrice;
     public Sprite[] allHatSprites;
     public int[] ownedHats;
+    public GameObject text;
 
     private UpdateVisuals hatContainer;
     private int ownedHatCount;
     private int selectedHat;
+    private Text coinText;
 
     void Awake()
     {
+        coinText = text.GetComponent<Text>();
         hatContainer = GameObject.Find("HatContainer").GetComponent<UpdateVisuals>();
 
         PlayerPrefs.SetInt("HatCount", allHatSprites.Length);
@@ -21,6 +25,7 @@ public class HatController : MonoBehaviour
 
         if (allHatSprites.Length > 0)
         {
+            print(allHatSprites.Length);
             ownedHats = new int[allHatSprites.Length];
 
             for (int i = 0; i < allHatSprites.Length; i++)
@@ -44,13 +49,9 @@ public class HatController : MonoBehaviour
             }
         }
 
-        coins = PlayerPrefs.GetInt("Coins");      
+        coins = PlayerPrefs.GetInt("Coins");
+        coinText.text = coins.ToString();
     }
-
-    /*void Start()
-    {
-        
-    }*/
 
     void Update()
     {
@@ -62,19 +63,16 @@ public class HatController : MonoBehaviour
 
     public void UnboxHat()
     {
-        print("here1");
         if (ownedHats.Length > ownedHatCount)// && coins >= unboxPrice)
         {
-            print("here2");
             coins -= unboxPrice;
+            coinText.text = coins.ToString();
             int random;
             while (true)
             {
-                print("here3");
                 random = Random.Range(0, allHatSprites.Length);
                 if (ownedHats[random] == 0)
                 {
-                    print("here4");
                     ownedHats[random] = 1;
                     ownedHatCount++;
                     PlayerPrefs.SetInt("Hat" + random.ToString(), 1);

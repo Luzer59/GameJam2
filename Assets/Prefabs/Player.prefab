@@ -405,13 +405,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ffad31b0e6f6043a9d61471d09e99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaCost: 30
-  staminaRecovery: 20
+  staminaCost: 35
+  staminaRecovery: 30
   recoveryTime: 2
-  spriteStates:
-  - {fileID: 21300000, guid: 4dd5344c24132b345957c0dcbbc4bcae, type: 3}
-  - {fileID: 21300000, guid: a3443431572c7cd4c942243cf66881e8, type: 3}
+  headSprites:
+  - states:
+    - {fileID: 21300000, guid: 4dd5344c24132b345957c0dcbbc4bcae, type: 3}
+    - {fileID: 21300000, guid: a3443431572c7cd4c942243cf66881e8, type: 3}
+  bodySpriteStates:
+  - {fileID: 21300000, guid: 3e688f0c35fa86141b90bab8d430b656, type: 3}
+  - {fileID: 21300000, guid: cf4baecc769e21d42b429709815726a7, type: 3}
   headSprite: {fileID: 172442}
+  bodySprite: {fileID: 143698}
 --- !u!114 &11441240
 MonoBehaviour:
   m_ObjectHideFlags: 1

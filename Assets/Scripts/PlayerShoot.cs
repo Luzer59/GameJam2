@@ -1,21 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public class HSprites
+{
+    public Sprite[] states;
+}
+
+
 public class PlayerShoot : MonoBehaviour
 {
     public float staminaCost;
     public float staminaRecovery;
     public float recoveryTime;
-    public Sprite[] spriteStates;
+
+    public HSprites[] headSprites;
+    public Sprite[] bodySpriteStates;
     public GameObject headSprite;
+    public GameObject bodySprite;
 
     private Light muzzleFlame;
     private bool recovering = false;
     private Stamina staminaSystem;
     private ParticleSystem flame;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer headSR;
+    private SpriteRenderer bodySR;
     private bool isPlaying = false;
     private PlayerState playerState;
+    private int selectedHat;
 
     void Awake()
     {
@@ -23,7 +35,14 @@ public class PlayerShoot : MonoBehaviour
         muzzleFlame = GetComponentInChildren<Light>();
         staminaSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<Stamina>();
         flame = GameObject.Find("Head").GetComponentInChildren<ParticleSystem>();
-        spriteRenderer = headSprite.GetComponent<SpriteRenderer>();
+        headSR = headSprite.GetComponent<SpriteRenderer>();
+        bodySR = bodySprite.GetComponent<SpriteRenderer>();
+    }
+
+    void Start()
+    {
+        selectedHat = PlayerPrefs.GetInt("SelectedHat");
+        selectedHat = 0; // DEBUG
     }
 
     void Update()
@@ -44,7 +63,8 @@ public class PlayerShoot : MonoBehaviour
                 {
                     muzzleFlame.enabled = true;
                     flame.Play();
-                    spriteRenderer.sprite = spriteStates[0];
+                    headSR.sprite = headSprites[selectedHat].states[0];
+                    bodySR.sprite = bodySpriteStates[0];
                 }
                 isPlaying = true;
             }
@@ -53,7 +73,8 @@ public class PlayerShoot : MonoBehaviour
                 if (isPlaying)
                 {
                     muzzleFlame.enabled = false;
-                    spriteRenderer.sprite = spriteStates[1];
+                    headSR.sprite = headSprites[selectedHat].states[1];
+                    bodySR.sprite = bodySpriteStates[1];
                     flame.Stop();
                     isPlaying = false;
                 }

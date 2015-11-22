@@ -37,6 +37,7 @@ public class HatDisplay : MonoBehaviour
 
     public void Click()
     {
+        print(hatController.ownedHats[hatIndex]);
         if (hatController.ownedHats[hatIndex] == 1)
         {
             // is available

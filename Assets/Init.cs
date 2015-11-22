@@ -3,17 +3,16 @@ using System.Collections;
 
 public class Init : MonoBehaviour
 {
-    public bool reset;
 
     void Awake()
     {
-        if (!PlayerPrefs.HasKey("Coins") || reset)
+        if (!PlayerPrefs.HasKey("Coins"))
         {
             PlayerPrefs.SetInt("Coins", 0);
         }
-        if (!PlayerPrefs.HasKey("SelectedHat") || reset)
+        if (!PlayerPrefs.HasKey("SelectedHat"))
         {
-            PlayerPrefs.SetInt("SelectedHat", 0);
+            PlayerPrefs.SetInt("SelectedHat", -1);
         }
 
         if (PlayerPrefs.HasKey("HatCount"))
