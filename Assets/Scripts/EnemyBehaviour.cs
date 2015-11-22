@@ -14,9 +14,13 @@ public class EnemyBehaviour : MonoBehaviour {
     private GameObject tower;
     public bool IsFlyingEnemy = false;
     private GameObject player;
+    public GameObject audioattack;
+    public GameObject audiowalk;
     
     void Start()
     {
+        audioattack.SetActive(false);
+        audiowalk.SetActive(true);
         player = GameObject.FindGameObjectWithTag("Player");
         tower = GameObject.Find("Tower");
         GameObject Fire = new GameObject();
@@ -74,6 +78,8 @@ public class EnemyBehaviour : MonoBehaviour {
     }
     IEnumerator hittower()
     {
+        audioattack.SetActive(true);
+        audiowalk.SetActive(false);
         //int i = 0;
         while (player.GetComponent<PlayerState>().GameOver == false)
         {
