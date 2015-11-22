@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0383ea7f6e2d3f44ba0183e931717e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetMoneyOnStart: 1
+  reset: 1
 --- !u!1 &597004159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,8 +1116,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -57.5800018}
-  m_SizeDelta: {x: 205.100006, y: 67}
+  m_AnchoredPosition: {x: 0, y: -64.8899994}
+  m_SizeDelta: {x: 297.799988, y: 76.8999939}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1110349383
 MonoBehaviour:
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1346,7 +1346,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 932802796}
   m_PlaneDistance: 8
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

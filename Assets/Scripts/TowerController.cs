@@ -19,7 +19,7 @@ public class TowerController : MonoBehaviour
         
         // Get references
         player = GameObject.FindGameObjectWithTag("Player");
-        SpriteRenderer[] towerPiecesTemp = GetComponentsInChildren<SpriteRenderer>();
+        GameObject[] towerPiecesTemp = GameObject.FindGameObjectsWithTag("TowerPiece");
         towerPieces = new GameObject[towerPiecesTemp.Length];
         for (int i = 0; i < towerPiecesTemp.Length; i++)
         {
